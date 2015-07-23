@@ -8,24 +8,14 @@
     <body>
         
         <table border="1">
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            
-        </table>
-        
-        <table border="1">
         <?php 
-            for($index = 1; $index <= 3; $index++):?>
+            for($tr = 1; $tr <= rand(1,100); $tr++):?>
             <tr> 
-                
+                <?php for($td = 1; $td <= rand(1,100); $td++):?>
+                <td>
+                    <?php echo $td; ?>
+                </td>
+                <?php endfor; ?>
             </tr>
         <?php endfor; ?>
         </table>
