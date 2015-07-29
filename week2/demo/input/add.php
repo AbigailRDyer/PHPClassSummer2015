@@ -6,13 +6,50 @@
         <title></title>
     </head>
     <body>
-        <?php
+         <?php
             include './dbconnect.php';
+            include './functions.php';
+            
+            $results = '';
+            
+            if (isPostRequest()) {
             
             $db = getDatabase();
             
-            var_dump($db);
+            $stmt = $db->prepare("INSERT INTO test SET dataone = :dataone, datatwo = :datatwo");
+        
+            $dataone = filter_input(INPUT_POST, 'dataone');
+            $datatwo = filter_input(INPUT_POST, 'datatwo');
+        
+            $binds = array( 
+                ":dataone" => $dataone,
+                ":datatwo" => $datatwo
+                    );
+            
+            
+            if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
+                //$results = $stmt->fetch(PDO::FETCH_ASSOC);    
+                $results = 'Data Added';
+            }
+            }
             
         ?>
+        
+        <h1>
+            <?php echo $results; ?>
+        </h1>
+        
+        
+        <form method="post" action="#">            
+            Data one <input type="text" value="" name="dataone" />
+            <br />
+            Data two <input type="text" value="" name="datatwo" />
+            <br />            
+            <input type="submit" value="Submit" />
     </body>
+        
+         
+        
+        
+        
 </html>
