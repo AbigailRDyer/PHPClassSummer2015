@@ -29,9 +29,9 @@ and open the template in the editor.
         
             $binds = array( 
                 ":firstname" => $firstname,
-                ":lastname" => lastname,
-                ":dob" => dob,
-                ":height" => height
+                ":lastname" => $lastname,
+                ":dob" => $dob,
+                ":height" => $height
                     );
             
             
