@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,11 +7,12 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+//connecting to the database connection file and the fuctions file
             include './dbConn.php';
             include './functions.php';
             
             $db = getDatabase();
-            
+//select all from actors table
             $stmt = $db->prepare("SELECT * FROM actors");
             $results = array();            
             if ($stmt->execute() && $stmt->rowCount() > 0) {
@@ -23,7 +20,7 @@ and open the template in the editor.
             }
             
         ?>
-        
+<!--table to display the database data-->
         <table cellspacing="15">
             <thead>
                 <tr>
@@ -46,6 +43,7 @@ and open the template in the editor.
         </table>
         <br/>
         <br/>
+<!--button to return to data entry-->
         <button onclick="window.location.href='add.php'">Enter Data</button>
     </body>
 </html>

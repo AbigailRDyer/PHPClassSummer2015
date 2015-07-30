@@ -1,5 +1,6 @@
 <?php
         
+//connecting to the database phpclasssummer2015
         function getDatabase() {
             $config = array(
             'DB_DNS' => 'mysql:host=localhost;port=3306;dbname=phpclasssummer2015', 

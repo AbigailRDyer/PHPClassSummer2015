@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,17 +6,19 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+//connecting to the database connection file and the fuctions file
             include './dbConn.php';
             include './functions.php';
             
             $results = '';
             
+//if data is submitted
             if (isPostRequest()) {
             
             $db = getDatabase();
             
             $stmt = $db->prepare("INSERT INTO actors SET firstname = :firstname, lastname = :lastname, dob = :dob, height = :height");
-        
+//linking text box data with database data
             $firstname = filter_input(INPUT_POST, 'firstname');
             $lastname = filter_input(INPUT_POST, 'lastname');
             $dob = filter_input(INPUT_POST, 'dob');
@@ -34,7 +31,7 @@ and open the template in the editor.
                 ":height" => $height
                     );
             
-            
+//displays 'data added' if data is added sucessfully
             if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {   
                 $results = 'Data Added';
             }
@@ -46,7 +43,7 @@ and open the template in the editor.
             <?php echo $results; ?>
         </h3>
         
-        
+<!--data entry form-->
         <form method="post" action="#">
             
                 First Name: <input type="text" value="" name="firstname" />
@@ -58,8 +55,10 @@ and open the template in the editor.
                 Height: <input type="text" value="" name="height" />
             <br/>
             <br/>
+<!--submit data button-->
             <input type="submit" value="Submit" /></form>
             <br/>
+<!--link to all data in database table-->
             <button onclick="window.location.href='view.php'">View all Data</button>
     </body>
 </html>
