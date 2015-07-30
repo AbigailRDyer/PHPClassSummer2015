@@ -35,28 +35,31 @@ and open the template in the editor.
                     );
             
             
-            if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
-                //$results = $stmt->fetch(PDO::FETCH_ASSOC);    
+            if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {   
                 $results = 'Data Added';
             }
             }
             
         ?>
-        
-        <h1>
+        <h1>Favorite Actors</h1>
+        <h3>
             <?php echo $results; ?>
-        </h1>
+        </h3>
         
         
-        <form method="post" action="#">            
-            First Name <input type="text" value="" name="firstname" />
-            <br />
-            Last Name <input type="text" value="" name="lastname" />
-            <br />
-            Date of Birth <input type="date" value="" name="dob" />
-            <br />    
-            Height <input type="text" value="" name="height" />
-            <br />   
-            <input type="submit" value="Submit" />
+        <form method="post" action="#">
+            
+                First Name: <input type="text" value="" name="firstname" />
+                <br />
+                Last Name: <input type="text" value="" name="lastname" />
+                <br />
+                Date of Birth: <input type="date" value="" name="dob" />
+                <br />    
+                Height: <input type="text" value="" name="height" />
+            <br/>
+            <br/>
+            <input type="submit" value="Submit" /></form>
+            <br/>
+            <button onclick="window.location.href='view.php'">View all Data</button>
     </body>
 </html>
