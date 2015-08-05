@@ -59,7 +59,7 @@
         
         ?>
         
-        <h1><?php echo $result; ?></h1>
+        <h1><?php echo $results; ?></h1>
         
         <form method="post" action="#">            
             Corp <input type="text" value="<?php echo $corp; ?>" name="corp" />
