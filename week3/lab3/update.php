@@ -12,7 +12,8 @@
             
             $db = getDatabase();
             
-            $result = '';
+            $results = '';
+            
             if (isPostRequest()) {
                 $id = filter_input(INPUT_POST, 'id');
                 $corp = filter_input(INPUT_POST, 'corp');
@@ -34,7 +35,7 @@
                 );
                 
                 if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-                   $result = 'Record updated';
+                   $results = 'Record updated';
                 }
             } else {
                 $id = filter_input(INPUT_GET, 'id');
