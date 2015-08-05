@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         
-            include './dbconnect.php';
+            include './dbConn.php';
             include './functions.php';
 
             
