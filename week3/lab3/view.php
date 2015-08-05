@@ -25,11 +25,14 @@
                     <th>Corp</th>
                 </tr>
             </thead>
-        <?php foreach($results as $row): ?>
-            <tr>
-                <td><?php echo $row['corp']; ?></td>           
-            </tr>
-        <?php endforeach; ?>
+         <?php foreach ($results as $row): ?>
+                <tr>
+                    <td><?php echo $row['corp']; ?></td>           
+                    <td><a href="update.php?id=<?php echo $row['corp']; ?>">Update</a></td>            
+                    <td><a href="delete.php?id=<?php echo $row['corp']; ?>">Delete</a></td>            
+                </tr>
+            <?php endforeach; ?>
+            
         </table>
         <br/>
         
