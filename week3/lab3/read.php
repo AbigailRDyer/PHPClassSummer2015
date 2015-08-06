@@ -7,9 +7,14 @@
     <body>
         <?php
         include './dbConn.php';
+        include './functions.php';
+        
         $db = getDatabase(); 
         
-        $stmt = $db->prepare("SELECT * FROM corps WHERE id =" . $_GET["id"]);?>
+        $stmt = $db->prepare("SELECT * FROM corps WHERE id =" . $_GET["id"]);
+        $results = array();
+            
+         ?>
         
 <!--table to display the database data-->
         <table cellspacing="15">
