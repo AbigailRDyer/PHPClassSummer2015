@@ -7,7 +7,9 @@
     <body>
         <?php
         include './dbConn.php';
-        $db = getDatabase(); ?>
+        $db = getDatabase(); 
+        
+        $stmt = $db->prepare("SELECT * FROM corps WHERE id =" . $_GET["id"]);?>
         
 <!--table to display the database data-->
         <table cellspacing="15">
