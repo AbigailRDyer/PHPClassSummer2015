@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,8 +14,7 @@ and open the template in the editor.
             $db = getDatabase();
             
             $id = filter_input(INPUT_GET, 'id'); 
-            
-            $stmt = $db->prepare("DELETE FROM test where id = :id");
+            $stmt = $db->prepare("DELETE FROM corps where id = :id");
             
             $binds = array(
                 ":id" => $id
@@ -41,6 +35,6 @@ and open the template in the editor.
         <?php endif; ?>
         Deleted</h1>
         
-        <p> <a href="view-action.php">View page</a></p>
+        <p> <a href="view.php">Back</a></p>
     </body>
 </html>

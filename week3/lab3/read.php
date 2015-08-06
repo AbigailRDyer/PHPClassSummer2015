@@ -11,6 +11,8 @@
         
         $db = getDatabase(); 
          
+        $id = filter_input(INPUT_GET, 'id');
+        
         $stmt = $db->prepare("SELECT * FROM corps WHERE id = :id");
         $binds = array(
                 ":id" => $id
@@ -36,16 +38,16 @@
                     <th>Phone</th>
                 </tr>
             </thead>
-        <?php foreach($results as $row): ?>
+        
             <tr>
-                <td><?php echo $row['corp']; ?></td>
-                <td><?php echo $row['incorp_dt']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['zipcode']; ?></td>
-                <td><?php echo $row['owner']; ?></td>             
-                <td><?php echo $row['phone']; ?></td>             
+                <td><?php echo $results['corp']; ?></td>
+                <td><?php echo $results['incorp_dt']; ?></td>
+                <td><?php echo $results['email']; ?></td>
+                <td><?php echo $results['zipcode']; ?></td>
+                <td><?php echo $results['owner']; ?></td>             
+                <td><?php echo $results['phone']; ?></td>             
             </tr>
-        <?php endforeach; ?>
+       
         </table>
         <br/>
         <br/>

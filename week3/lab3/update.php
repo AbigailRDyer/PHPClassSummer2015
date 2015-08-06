@@ -10,11 +10,15 @@
             include './dbConn.php';
             include './functions.php';
             
-            $db = getDatabase();
+            
             
             $results = '';
+            $db = getDatabase();
             
             if (isPostRequest()) {
+                
+                
+                $stmt = $db->prepare("UPDATE corps set corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone where id = :id");
                 $id = filter_input(INPUT_POST, 'id');
                 $corp = filter_input(INPUT_POST, 'corp');
                 $incorp_dt = filter_input(INPUT_POST, 'incorp_dt');
@@ -22,7 +26,7 @@
                 $zipcode = filter_input(INPUT_POST, 'zipcode');
                 $owner = filter_input(INPUT_POST, 'owner');
                 $phone = filter_input(INPUT_POST, 'phone');
-                $stmt = $db->prepare("UPDATE test set corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone where id = :id");
+                
                 
                 $binds = array(
                     ":id" => $id,
@@ -31,15 +35,15 @@
                     ":email" => $email,
                     ":zipcode" => $zipcode,
                     ":owner" => $owner,
-                    ":phone" => $phone
-                );
+                    ":phone" => $phone );
                 
                 if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                    $results = 'Record updated';
-                }
-            } else {
+                   echo $results;
+                }}
+             else {
                 $id = filter_input(INPUT_GET, 'id');
-                $stmt = $db->prepare("SELECT * FROM test where id = :id");
+                $stmt = $db->prepare("SELECT * FROM corps where id = :id");
                 $binds = array(
                     ":id" => $id
                 );
@@ -59,7 +63,7 @@
         
         ?>
         
-        <h1><?php echo $results; ?></h1>
+        
         
         <form method="post" action="#">            
             Corp <input type="text" value="<?php echo $corp; ?>" name="corp" />
@@ -78,6 +82,6 @@
             <input type="submit" value="Update" />
         </form>
         
-        <p> <a href="view-action.php">View page</a></p>
+        <p> <a href="view.php">Back</a></p>
     </body>
 </html>
