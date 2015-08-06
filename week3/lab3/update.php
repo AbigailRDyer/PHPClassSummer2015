@@ -49,12 +49,12 @@
                 if ( !isset($id) ) {
                     die('Record not found');
                 }
-                $corp = $results['corp'];
-                $incorp_dt = $results['incorp_dt'];
-                $email = $results['email'];
-                $zipcode = $results['zipcode'];
-                $owner = $results['owner'];
-                $phone = $results['phone_dt'];
+                $corp == $results['corp'];
+                $incorp_dt == $results['incorp_dt'];
+                $email == $results['email'];
+                $zipcode == $results['zipcode'];
+                $owner == $results['owner'];
+                $phone == $results['phone_dt'];
             }
         
         ?>
