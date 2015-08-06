@@ -44,7 +44,9 @@
             Data one <input type="text" value="" name="dataone" />
             <br />
             Data two <input type="text" value="" name="datatwo" />
-            <br />            
+            <br />
+            Date <input type="date" value="" name="datatwo" />
+            <br />             
             <input type="submit" value="Submit" />
     </body>
         
