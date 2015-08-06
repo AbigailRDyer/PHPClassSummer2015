@@ -10,14 +10,22 @@
         include './functions.php';
         
         $db = getDatabase(); 
+         
+        $stmt = $db->prepare("SELECT * FROM corps WHERE id = :id");
+        $binds = array(
+                ":id" => $id
+            );
         
-        $stmt = $db->prepare("SELECT * FROM corps WHERE id =" . $_GET["id"]);
-        $results = array();
+        $results = array();           
+        if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            }
             
          ?>
         
 <!--table to display the database data-->
-        <table cellspacing="15">
+
+<table cellspacing="15">
             <thead>
                 <tr>
                     <th>Company</th>
