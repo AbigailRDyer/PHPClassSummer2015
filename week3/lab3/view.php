@@ -12,7 +12,7 @@
         $db = getDatabase();
         
 //select all from corps table
-            $stmt = $db->prepare("SELECT * FROM corps");
+            $stmt = $db->prepare("SELECT * FROM corps ORDER BY corps");
             $results = array();
             
             if ($stmt->execute() && $stmt->rowCount() > 0) {

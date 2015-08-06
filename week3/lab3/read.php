@@ -5,6 +5,10 @@
         <title></title>
     </head>
     <body>
+        <?php
+        include './dbConn.php';
+        $db = getDatabase(); ?>
+        
 <!--table to display the database data-->
         <table cellspacing="15">
             <thead>
