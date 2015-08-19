@@ -15,8 +15,8 @@
                 <?php 
 // for td equals 1, and is less than or equal to 10, accumulator (forming the table)
                 for($td = 1; $td <= 10; $td++):?>
+<!--selecting and echoing a random background color for each cell-->
                 <td style="background-color: 
-//selecting and echoing a random background color for each cell
                     <?php echo "#".$randColor = strtoupper(dechex(rand(0x100000, 0xFFFFFF))); ?>">
                     <?php echo "#".$randColor; ?>
                     <br /><span style="color:#ffffff"><?php echo "#".$randColor; ?>
