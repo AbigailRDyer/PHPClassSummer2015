@@ -47,7 +47,8 @@
  
             <select name="state_id">
             <?php foreach ($states as $row): ?>
-                <option value="<?php echo $row['state_id']; ?>"><?php echo $row['state_name']; ?></option>
+                <option value="<?php echo $row['state_id']; ?>">
+                    <?php echo $row['state_name']; ?></option>
             <?php endforeach; ?>
             </select>
 
